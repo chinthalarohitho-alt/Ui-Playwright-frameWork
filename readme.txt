@@ -14,7 +14,7 @@ Automated testing framework using Playwright-Java, Cucumber BDD, and Maven.
 ## Setup
 
 Clone repository
-git clone https://github.com/chinthalarohitho-alt/Playwright-frameWork.git
+git clone https://github.com/chinthalarohitho-alt/Ui-Playwright-frameWork.git
 cd playwright-framework
 
 Install dependencies and browsers
