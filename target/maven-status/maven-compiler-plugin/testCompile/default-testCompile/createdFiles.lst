@@ -1,5 +1,0 @@
-runner/CucumberRunnerTest.class
-steps/Login/LoginSteps.class
-steps/Form/FormSteps.class
-hooks/Hooks.class
-steps/cart/cartSteps.class

@@ -57,13 +57,26 @@ jobs:
           allure_report: allure-report
           allure_history: allure-history
 
+      - name: Check Allure History
+        if: always()
+        run: |
+          if [ -d "allure-history" ]; then
+            echo "Allure history found, proceeding to deploy."
+          else
+            echo "Allure history not found! Creating empty directory to avoid deploy failure."
+            mkdir -p allure-history
+            touch allure-history/.nojekyll
+          fi
+
       - name: Deploy report to Github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./allure-history
+          publish_branch: gh-pages
           force_orphan: true
+          commit_message: "Deploy Allure Report [skip ci]"
 
       - name: GitHub Job Summary
         if: always()

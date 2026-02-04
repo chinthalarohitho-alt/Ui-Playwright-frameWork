@@ -62,23 +62,96 @@ public class playwright extends FrameWorkInitialization {
     // ==================== CLICK ACTIONS ====================
 
     /**
-     * Clicks on an element. Waits for element to be visible and clickable.
-     * Throws exception if element not found or not clickable.
+     * Internal helper to perform clicks with standardized logging and error handling.
      */
-    public void click(String locator) {
+    private void internalClick(Locator locator, String description) {
         try {
-            logger.debug("Clicking element: {}", locator);
-            getPage().locator(locator).click();
-            logger.debug("Clicked successfully: {}", locator);
+            logger.debug("Clicking: {}", description);
+            locator.click();
+            logger.debug("Clicked successfully: {}", description);
         } catch (TimeoutError e) {
-            String error = String.format("Element not found or not clickable within timeout: %s", locator);
+            String error = String.format("Element not found or not clickable within timeout: %s", description);
             logger.error(error, e);
             throw new AssertionError(error, e);
         } catch (PlaywrightException e) {
-            String error = String.format("Failed to click element: %s. Reason: %s", locator, e.getMessage());
+            String error = String.format("Failed to click element: %s. Reason: %s", description, e.getMessage());
             logger.error(error, e);
             throw new AssertionError(error, e);
         }
+    }
+
+    /**
+     * Clicks on an element using a CSS or XPath selector.
+     */
+    public void click(String selector) {
+        internalClick(getPage().locator(selector), selector);
+    }
+
+    /**
+     * Clicks on an element by its ARIA role and name.
+     */
+    public void clickByRole(AriaRole role, String name) {
+        internalClick(getPage().getByRole(role, new Page.GetByRoleOptions().setName(name)),
+                String.format("Role: %s, Name: %s", role, name));
+    }
+
+    public void clickButton(String name) {
+        clickByRole(AriaRole.BUTTON, name);
+    }
+
+    public void clickLink(String name) {
+        clickByRole(AriaRole.LINK, name);
+    }
+
+    public void clickCheckbox(String name) {
+        clickByRole(AriaRole.CHECKBOX, name);
+    }
+
+    public void clickRadio(String name) {
+        clickByRole(AriaRole.RADIO, name);
+    }
+
+    public void clickTab(String name) {
+        clickByRole(AriaRole.TAB, name);
+    }
+
+    public void clickMenuItem(String name) {
+        clickByRole(AriaRole.MENUITEM, name);
+    }
+
+    /**
+     * Clicks on an element by its associated label text.
+     */
+    public void clickByLabel(String label) {
+        internalClick(getPage().getByLabel(label), "Label: " + label);
+    }
+
+    /**
+     * Clicks on an element by its placeholder text.
+     */
+    public void clickByPlaceholder(String placeholder) {
+        internalClick(getPage().getByPlaceholder(placeholder), "Placeholder: " + placeholder);
+    }
+
+    /**
+     * Clicks on an element by its alt-text (typically images).
+     */
+    public void clickByAltText(String altText) {
+        internalClick(getPage().getByAltText(altText), "AltText: " + altText);
+    }
+
+    /**
+     * Clicks on an element by its title attribute.
+     */
+    public void clickByTitle(String title) {
+        internalClick(getPage().getByTitle(title), "Title: " + title);
+    }
+
+    /**
+     * Clicks on an element using its test-id attribute.
+     */
+    public void clickByTestId(String testId) {
+        internalClick(getPage().getByTestId(testId), "TestId: " + testId);
     }
 
     /**
