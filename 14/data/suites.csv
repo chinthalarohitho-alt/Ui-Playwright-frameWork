@@ -1,0 +1,2 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","11325","User adds a laptop to the cart and removes it successfully","","Wed Feb 04 14:57:11 UTC 2026","passed","Wed Feb 04 14:57:22 UTC 2026","","Smoke Test","User adds a laptop to the cart and removes it successfully",""
