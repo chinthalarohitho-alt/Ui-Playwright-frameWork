@@ -10,7 +10,7 @@ jobs:
   playwright-tests:
     runs-on: ubuntu-latest
     env:
-      TestingEnv: google
+      TestingEnv: demoBlaze
       HEADLESS: true
     steps:
       - name: Checkout code

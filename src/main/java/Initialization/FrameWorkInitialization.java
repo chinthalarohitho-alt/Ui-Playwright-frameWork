@@ -69,7 +69,11 @@ public class FrameWorkInitialization {
         try {
             // Read browser configuration
             String browserName = prop.getProperty("BrowserName", DEFAULT_BROWSER);
-            boolean isHeadless = Boolean.parseBoolean(prop.getProperty("Headless_status", String.valueOf(DEFAULT_HEADLESS)));
+            
+            // Priority: Command line (-Dheadless=true) > BrowserConfig.properties > Default
+            String headlessOverride = System.getProperty("headless");
+            boolean isHeadless = (headlessOverride != null) ? Boolean.parseBoolean(headlessOverride) :
+                    Boolean.parseBoolean(prop.getProperty("Headless_status", String.valueOf(DEFAULT_HEADLESS)));
             String locale = prop.getProperty("Locale", DEFAULT_LOCALE);
             String windowSize = prop.getProperty("window_size", DEFAULT_WINDOW_SIZE);
 
