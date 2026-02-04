@@ -108,6 +108,17 @@ public class Hooks {
                 passedTests++;
                 System.out.println("✓ PASSED: " + scenario.getName() + " (" + formatTime(duration) + ")");
             }
+
+            // Save trace on failure
+            if (scenario.isFailed() && FM != null && FM.getContext() != null) {
+                String enableTracing = FM.getProperties().getProperty("enable_tracing", "false");
+                if ("true".equalsIgnoreCase(enableTracing)) {
+                    String tracePath = "target/traces/" + sanitize(scenario.getName()) + ".zip";
+                    FM.getContext().tracing().stop(new com.microsoft.playwright.Tracing.StopOptions()
+                            .setPath(java.nio.file.Paths.get(tracePath)));
+                    System.out.println("  Trace saved: " + tracePath);
+                }
+            }
         } catch (Exception e) {
             logger.error("Teardown error: {}", e.getMessage());
         } finally {
@@ -327,6 +338,7 @@ public class Hooks {
     private static void createDirectories() {
         try {
             Files.createDirectories(Paths.get(SCREENSHOTS_DIR));
+            Files.createDirectories(Paths.get("target/traces"));
         } catch (IOException e) {
             logger.warn("Directory creation failed: {}", e.getMessage());
         }

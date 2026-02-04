@@ -96,6 +96,16 @@ public class FrameWorkInitialization {
             BrowserContext context = createBrowserContext(browser, locale, windowSize);
             config.setContext(context);
 
+            // Start Playwright Tracing if enabled
+            String enableTracing = prop.getProperty("enable_tracing", "false");
+            if ("true".equalsIgnoreCase(enableTracing)) {
+                context.tracing().start(new Tracing.StartOptions()
+                        .setScreenshots(true)
+                        .setSnapshots(true)
+                        .setSources(true));
+                logger.info("Playwright Tracing started");
+            }
+
             // Create page
             Page page = context.newPage();
             config.setPage(page);

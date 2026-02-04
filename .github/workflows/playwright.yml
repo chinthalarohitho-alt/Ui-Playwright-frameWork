@@ -82,3 +82,5 @@ jobs:
             target/cucumber.json
             allure-report/
             allure-history/
+            target/traces/
+            target/screenshots/
