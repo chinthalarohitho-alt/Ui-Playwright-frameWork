@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TestingEnv: google
+      HEADLESS: true
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -26,7 +27,7 @@ jobs:
         run: mvn exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install --with-deps"
 
       - name: Run Tests
-        run: mvn test -Dcucumber.filter.tags="@smoke" -Denv=${{ env.TestingEnv }}
+        run: mvn test -Dcucumber.filter.tags="@smoke" -Denv=${{ env.TestingEnv }} -Dheadless=${{env.HEADLESS}}
 
       - name: Upload Test Reports
         if: always()
