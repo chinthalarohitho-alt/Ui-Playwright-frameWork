@@ -57,26 +57,25 @@ jobs:
           allure_report: allure-report
           allure_history: allure-history
 
-      - name: Check Allure History
+      - name: Check and Prepare Allure History
         if: always()
         run: |
-          if [ -d "allure-history" ]; then
-            echo "Allure history found, proceeding to deploy."
-          else
-            echo "Allure history not found! Creating empty directory to avoid deploy failure."
-            mkdir -p allure-history
-            touch allure-history/.nojekyll
+          # If allure-history doesn't exist, create it.
+          # If it exists but is empty, add a placeholder to ensure git has something to commit.
+          mkdir -p allure-history
+          if [ -z "$(ls -A allure-history)" ]; then
+            echo "<html><body><h1>Allure Report is being initialized. Please check back after next run.</h1></body></html>" > allure-history/index.html
           fi
+          touch allure-history/.nojekyll
 
-      - name: Deploy report to Github Pages
+      - name: Deploy to GitHub Pages
         if: always()
-        uses: peaceiris/actions-gh-pages@v4
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./allure-history
-          publish_branch: gh-pages
-          force_orphan: true
-          commit_message: "Deploy Allure Report [skip ci]"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: allure-history
+          clean: true # Automatically remove old files if any
 
       - name: GitHub Job Summary
         if: always()
