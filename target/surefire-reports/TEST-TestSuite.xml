@@ -1,101 +1,175 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="17.37" tests="2" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="225.931" tests="1" errors="0" skipped="0" failures="1">
   <properties>
-    <property name="java.specification.version" value="17"/>
+    <property name="java.specification.version" value="25"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/Users/chinthalarohithkumar/Desktop/fixes/selenium/Playwright/target/test-classes:/Users/chinthalarohithkumar/Desktop/fixes/selenium/Playwright/target/classes:/Users/chinthalarohithkumar/.m2/repository/com/microsoft/playwright/playwright/1.56.0/playwright-1.56.0.jar:/Users/chinthalarohithkumar/.m2/repository/com/google/code/gson/gson/2.13.2/gson-2.13.2.jar:/Users/chinthalarohithkumar/.m2/repository/com/google/errorprone/error_prone_annotations/2.41.0/error_prone_annotations-2.41.0.jar:/Users/chinthalarohithkumar/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/chinthalarohithkumar/.m2/repository/com/microsoft/playwright/driver/1.56.0/driver-1.56.0.jar:/Users/chinthalarohithkumar/.m2/repository/com/microsoft/playwright/driver-bundle/1.56.0/driver-bundle-1.56.0.jar:/Users/chinthalarohithkumar/.m2/repository/org/testng/testng/7.8.0/testng-7.8.0.jar:/Users/chinthalarohithkumar/.m2/repository/com/beust/jcommander/1.82/jcommander-1.82.jar:/Users/chinthalarohithkumar/.m2/repository/org/webjars/jquery/3.6.1/jquery-3.6.1.jar:/Users/chinthalarohithkumar/.m2/repository/io/qameta/allure/allure-cucumber7-jvm/2.31.0/allure-cucumber7-jvm-2.31.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/qameta/allure/allure-java-commons/2.31.0/allure-java-commons-2.31.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/qameta/allure/allure-model/2.31.0/allure-model-2.31.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/qameta/allure/allure-testng/2.31.0/allure-testng-2.31.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/qameta/allure/allure-test-filter/2.31.0/allure-test-filter-2.31.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/cucumber-java/7.32.0/cucumber-java-7.32.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/cucumber-core/7.32.0/cucumber-core-7.32.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/cucumber-gherkin/7.32.0/cucumber-gherkin-7.32.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/cucumber-gherkin-messages/7.32.0/cucumber-gherkin-messages-7.32.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/gherkin/36.1.0/gherkin-36.1.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/messages/30.1.0/messages-30.1.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/pretty-formatter/2.4.1/pretty-formatter-2.4.1.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/query/14.6.0/query-14.6.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/teamcity-formatter/0.2.0/teamcity-formatter-0.2.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/testng-xml-formatter/0.7.0/testng-xml-formatter-0.7.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/usage-formatter/0.1.0/usage-formatter-0.1.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/tag-expressions/8.0.0/tag-expressions-8.0.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/cucumber-expressions/18.0.1/cucumber-expressions-18.0.1.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/cucumber-json-formatter/0.3.1/cucumber-json-formatter-0.3.1.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/datatable/7.32.0/datatable-7.32.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/cucumber-plugin/7.32.0/cucumber-plugin-7.32.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/docstring/7.32.0/docstring-7.32.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/html-formatter/22.1.0/html-formatter-22.1.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/junit-xml-formatter/0.11.0/junit-xml-formatter-0.11.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/ci-environment/12.0.0/ci-environment-12.0.0.jar:/Users/chinthalarohithkumar/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/cucumber-testng/7.32.0/cucumber-testng-7.32.0.jar:/Users/chinthalarohithkumar/.m2/repository/org/apache/poi/poi-ooxml/5.4.1/poi-ooxml-5.4.1.jar:/Users/chinthalarohithkumar/.m2/repository/org/apache/poi/poi-ooxml-lite/5.4.1/poi-ooxml-lite-5.4.1.jar:/Users/chinthalarohithkumar/.m2/repository/org/apache/xmlbeans/xmlbeans/5.3.0/xmlbeans-5.3.0.jar:/Users/chinthalarohithkumar/.m2/repository/org/apache/commons/commons-compress/1.27.1/commons-compress-1.27.1.jar:/Users/chinthalarohithkumar/.m2/repository/org/apache/commons/commons-lang3/3.16.0/commons-lang3-3.16.0.jar:/Users/chinthalarohithkumar/.m2/repository/commons-io/commons-io/2.18.0/commons-io-2.18.0.jar:/Users/chinthalarohithkumar/.m2/repository/com/github/virtuald/curvesapi/1.08/curvesapi-1.08.jar:/Users/chinthalarohithkumar/.m2/repository/org/apache/logging/log4j/log4j-api/2.24.3/log4j-api-2.24.3.jar:/Users/chinthalarohithkumar/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar:/Users/chinthalarohithkumar/.m2/repository/org/apache/poi/poi/5.4.1/poi-5.4.1.jar:/Users/chinthalarohithkumar/.m2/repository/commons-codec/commons-codec/1.18.0/commons-codec-1.18.0.jar:/Users/chinthalarohithkumar/.m2/repository/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar:/Users/chinthalarohithkumar/.m2/repository/com/zaxxer/SparseBitSet/1.3/SparseBitSet-1.3.jar:/Users/chinthalarohithkumar/.m2/repository/org/apache/poi/poi-ooxml-schemas/4.1.2/poi-ooxml-schemas-4.1.2.jar:/Users/chinthalarohithkumar/.m2/repository/org/aeonbits/owner/owner/1.0.12/owner-1.0.12.jar:/Users/chinthalarohithkumar/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/Users/chinthalarohithkumar/.m2/repository/org/slf4j/jcl-over-slf4j/2.0.9/jcl-over-slf4j-2.0.9.jar:/Users/chinthalarohithkumar/.m2/repository/ch/qos/logback/logback-classic/1.5.21/logback-classic-1.5.21.jar:/Users/chinthalarohithkumar/.m2/repository/ch/qos/logback/logback-core/1.5.21/logback-core-1.5.21.jar:/Users/chinthalarohithkumar/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/chinthalarohithkumar/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="java.class.path" value="/Users/rohithkumar/Desktop/Ui-Playwright-frameWork/target/test-classes:/Users/rohithkumar/Desktop/Ui-Playwright-frameWork/target/classes:/Users/rohithkumar/.m2/repository/com/microsoft/playwright/playwright/1.56.0/playwright-1.56.0.jar:/Users/rohithkumar/.m2/repository/com/google/code/gson/gson/2.13.2/gson-2.13.2.jar:/Users/rohithkumar/.m2/repository/com/google/errorprone/error_prone_annotations/2.41.0/error_prone_annotations-2.41.0.jar:/Users/rohithkumar/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/rohithkumar/.m2/repository/com/microsoft/playwright/driver/1.56.0/driver-1.56.0.jar:/Users/rohithkumar/.m2/repository/com/microsoft/playwright/driver-bundle/1.56.0/driver-bundle-1.56.0.jar:/Users/rohithkumar/.m2/repository/org/testng/testng/7.8.0/testng-7.8.0.jar:/Users/rohithkumar/.m2/repository/com/beust/jcommander/1.82/jcommander-1.82.jar:/Users/rohithkumar/.m2/repository/org/webjars/jquery/3.6.1/jquery-3.6.1.jar:/Users/rohithkumar/.m2/repository/io/qameta/allure/allure-cucumber7-jvm/2.31.0/allure-cucumber7-jvm-2.31.0.jar:/Users/rohithkumar/.m2/repository/io/qameta/allure/allure-java-commons/2.31.0/allure-java-commons-2.31.0.jar:/Users/rohithkumar/.m2/repository/io/qameta/allure/allure-model/2.31.0/allure-model-2.31.0.jar:/Users/rohithkumar/.m2/repository/io/qameta/allure/allure-testng/2.31.0/allure-testng-2.31.0.jar:/Users/rohithkumar/.m2/repository/io/qameta/allure/allure-test-filter/2.31.0/allure-test-filter-2.31.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/cucumber-java/7.32.0/cucumber-java-7.32.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/cucumber-core/7.32.0/cucumber-core-7.32.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/cucumber-gherkin/7.32.0/cucumber-gherkin-7.32.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/cucumber-gherkin-messages/7.32.0/cucumber-gherkin-messages-7.32.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/gherkin/36.1.0/gherkin-36.1.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/messages/30.1.0/messages-30.1.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/pretty-formatter/2.4.1/pretty-formatter-2.4.1.jar:/Users/rohithkumar/.m2/repository/io/cucumber/query/14.7.0/query-14.7.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/teamcity-formatter/0.2.0/teamcity-formatter-0.2.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/testng-xml-formatter/0.7.0/testng-xml-formatter-0.7.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/usage-formatter/0.1.0/usage-formatter-0.1.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/tag-expressions/8.0.0/tag-expressions-8.0.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/cucumber-expressions/18.0.1/cucumber-expressions-18.0.1.jar:/Users/rohithkumar/.m2/repository/io/cucumber/cucumber-json-formatter/0.3.1/cucumber-json-formatter-0.3.1.jar:/Users/rohithkumar/.m2/repository/io/cucumber/datatable/7.32.0/datatable-7.32.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/cucumber-plugin/7.32.0/cucumber-plugin-7.32.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/docstring/7.32.0/docstring-7.32.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/html-formatter/22.1.0/html-formatter-22.1.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/junit-xml-formatter/0.11.0/junit-xml-formatter-0.11.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/ci-environment/12.0.0/ci-environment-12.0.0.jar:/Users/rohithkumar/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/rohithkumar/.m2/repository/io/cucumber/cucumber-testng/7.32.0/cucumber-testng-7.32.0.jar:/Users/rohithkumar/.m2/repository/org/apache/poi/poi-ooxml/5.5.1/poi-ooxml-5.5.1.jar:/Users/rohithkumar/.m2/repository/org/apache/poi/poi-ooxml-lite/5.5.1/poi-ooxml-lite-5.5.1.jar:/Users/rohithkumar/.m2/repository/org/apache/xmlbeans/xmlbeans/5.3.0/xmlbeans-5.3.0.jar:/Users/rohithkumar/.m2/repository/org/apache/commons/commons-compress/1.28.0/commons-compress-1.28.0.jar:/Users/rohithkumar/.m2/repository/org/apache/commons/commons-lang3/3.18.0/commons-lang3-3.18.0.jar:/Users/rohithkumar/.m2/repository/commons-io/commons-io/2.21.0/commons-io-2.21.0.jar:/Users/rohithkumar/.m2/repository/com/github/virtuald/curvesapi/1.08/curvesapi-1.08.jar:/Users/rohithkumar/.m2/repository/org/apache/logging/log4j/log4j-api/2.24.3/log4j-api-2.24.3.jar:/Users/rohithkumar/.m2/repository/org/apache/commons/commons-collections4/4.5.0/commons-collections4-4.5.0.jar:/Users/rohithkumar/.m2/repository/org/apache/poi/poi/5.4.1/poi-5.4.1.jar:/Users/rohithkumar/.m2/repository/commons-codec/commons-codec/1.18.0/commons-codec-1.18.0.jar:/Users/rohithkumar/.m2/repository/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar:/Users/rohithkumar/.m2/repository/com/zaxxer/SparseBitSet/1.3/SparseBitSet-1.3.jar:/Users/rohithkumar/.m2/repository/org/apache/poi/poi-ooxml-schemas/4.1.2/poi-ooxml-schemas-4.1.2.jar:/Users/rohithkumar/.m2/repository/org/aeonbits/owner/owner/1.0.12/owner-1.0.12.jar:/Users/rohithkumar/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/Users/rohithkumar/.m2/repository/org/slf4j/jcl-over-slf4j/2.0.9/jcl-over-slf4j-2.0.9.jar:/Users/rohithkumar/.m2/repository/ch/qos/logback/logback-classic/1.5.21/logback-classic-1.5.21.jar:/Users/rohithkumar/.m2/repository/ch/qos/logback/logback-core/1.5.21/logback-core-1.5.21.jar:/Users/rohithkumar/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/rohithkumar/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/rohithkumar/.m2/repository/org/aspectj/aspectjweaver/1.9.20.1/aspectjweaver-1.9.20.1.jar:/Users/rohithkumar/.m2/repository/com/squareup/okhttp3/okhttp/4.12.0/okhttp-4.12.0.jar:/Users/rohithkumar/.m2/repository/com/squareup/okio/okio/3.6.0/okio-3.6.0.jar:/Users/rohithkumar/.m2/repository/com/squareup/okio/okio-jvm/3.6.0/okio-jvm-3.6.0.jar:/Users/rohithkumar/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.9.10/kotlin-stdlib-common-1.9.10.jar:/Users/rohithkumar/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.8.21/kotlin-stdlib-jdk8-1.8.21.jar:/Users/rohithkumar/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.8.21/kotlin-stdlib-1.8.21.jar:/Users/rohithkumar/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/Users/rohithkumar/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.8.21/kotlin-stdlib-jdk7-1.8.21.jar:/Users/rohithkumar/.m2/repository/org/json/json/20231013/json-20231013.jar:"/>
     <property name="java.vm.vendor" value="Homebrew"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://github.com/Homebrew/homebrew-core/issues"/>
     <property name="user.timezone" value="Asia/Kolkata"/>
     <property name="os.name" value="Mac OS X"/>
-    <property name="java.vm.specification.version" value="17"/>
+    <property name="java.vm.specification.version" value="25"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
-    <property name="user.country" value="US"/>
-    <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk@17/17.0.15/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/chinthalarohithkumar/Desktop/fixes/selenium/Playwright/target/surefire/surefirebooter-20251203130026367_3.jar /Users/chinthalarohithkumar/Desktop/fixes/selenium/Playwright/target/surefire 2025-12-03T13-00-26_324-jvmRun1 surefire-20251203130026367_1tmp surefire_0-20251203130026367_2tmp"/>
-    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|meet.google.com|*.meet.google.com"/>
+    <property name="user.country" value="IN"/>
+    <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk/25.0.1/libexec/openjdk.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/rohithkumar/Desktop/Ui-Playwright-frameWork/target/surefire/surefirebooter-20260204131705817_3.jar /Users/rohithkumar/Desktop/Ui-Playwright-frameWork/target/surefire 2026-02-04T13-17-05_763-jvmRun1 surefire-20260204131705817_1tmp surefire_0-20260204131705817_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/Users/chinthalarohithkumar/Desktop/fixes/selenium/Playwright/target/test-classes:/Users/chinthalarohithkumar/Desktop/fixes/selenium/Playwright/target/classes:/Users/chinthalarohithkumar/.m2/repository/com/microsoft/playwright/playwright/1.56.0/playwright-1.56.0.jar:/Users/chinthalarohithkumar/.m2/repository/com/google/code/gson/gson/2.13.2/gson-2.13.2.jar:/Users/chinthalarohithkumar/.m2/repository/com/google/errorprone/error_prone_annotations/2.41.0/error_prone_annotations-2.41.0.jar:/Users/chinthalarohithkumar/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/chinthalarohithkumar/.m2/repository/com/microsoft/playwright/driver/1.56.0/driver-1.56.0.jar:/Users/chinthalarohithkumar/.m2/repository/com/microsoft/playwright/driver-bundle/1.56.0/driver-bundle-1.56.0.jar:/Users/chinthalarohithkumar/.m2/repository/org/testng/testng/7.8.0/testng-7.8.0.jar:/Users/chinthalarohithkumar/.m2/repository/com/beust/jcommander/1.82/jcommander-1.82.jar:/Users/chinthalarohithkumar/.m2/repository/org/webjars/jquery/3.6.1/jquery-3.6.1.jar:/Users/chinthalarohithkumar/.m2/repository/io/qameta/allure/allure-cucumber7-jvm/2.31.0/allure-cucumber7-jvm-2.31.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/qameta/allure/allure-java-commons/2.31.0/allure-java-commons-2.31.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/qameta/allure/allure-model/2.31.0/allure-model-2.31.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/qameta/allure/allure-testng/2.31.0/allure-testng-2.31.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/qameta/allure/allure-test-filter/2.31.0/allure-test-filter-2.31.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/cucumber-java/7.32.0/cucumber-java-7.32.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/cucumber-core/7.32.0/cucumber-core-7.32.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/cucumber-gherkin/7.32.0/cucumber-gherkin-7.32.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/cucumber-gherkin-messages/7.32.0/cucumber-gherkin-messages-7.32.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/gherkin/36.1.0/gherkin-36.1.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/messages/30.1.0/messages-30.1.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/pretty-formatter/2.4.1/pretty-formatter-2.4.1.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/query/14.6.0/query-14.6.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/teamcity-formatter/0.2.0/teamcity-formatter-0.2.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/testng-xml-formatter/0.7.0/testng-xml-formatter-0.7.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/usage-formatter/0.1.0/usage-formatter-0.1.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/tag-expressions/8.0.0/tag-expressions-8.0.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/cucumber-expressions/18.0.1/cucumber-expressions-18.0.1.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/cucumber-json-formatter/0.3.1/cucumber-json-formatter-0.3.1.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/datatable/7.32.0/datatable-7.32.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/cucumber-plugin/7.32.0/cucumber-plugin-7.32.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/docstring/7.32.0/docstring-7.32.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/html-formatter/22.1.0/html-formatter-22.1.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/junit-xml-formatter/0.11.0/junit-xml-formatter-0.11.0.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/ci-environment/12.0.0/ci-environment-12.0.0.jar:/Users/chinthalarohithkumar/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/chinthalarohithkumar/.m2/repository/io/cucumber/cucumber-testng/7.32.0/cucumber-testng-7.32.0.jar:/Users/chinthalarohithkumar/.m2/repository/org/apache/poi/poi-ooxml/5.4.1/poi-ooxml-5.4.1.jar:/Users/chinthalarohithkumar/.m2/repository/org/apache/poi/poi-ooxml-lite/5.4.1/poi-ooxml-lite-5.4.1.jar:/Users/chinthalarohithkumar/.m2/repository/org/apache/xmlbeans/xmlbeans/5.3.0/xmlbeans-5.3.0.jar:/Users/chinthalarohithkumar/.m2/repository/org/apache/commons/commons-compress/1.27.1/commons-compress-1.27.1.jar:/Users/chinthalarohithkumar/.m2/repository/org/apache/commons/commons-lang3/3.16.0/commons-lang3-3.16.0.jar:/Users/chinthalarohithkumar/.m2/repository/commons-io/commons-io/2.18.0/commons-io-2.18.0.jar:/Users/chinthalarohithkumar/.m2/repository/com/github/virtuald/curvesapi/1.08/curvesapi-1.08.jar:/Users/chinthalarohithkumar/.m2/repository/org/apache/logging/log4j/log4j-api/2.24.3/log4j-api-2.24.3.jar:/Users/chinthalarohithkumar/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar:/Users/chinthalarohithkumar/.m2/repository/org/apache/poi/poi/5.4.1/poi-5.4.1.jar:/Users/chinthalarohithkumar/.m2/repository/commons-codec/commons-codec/1.18.0/commons-codec-1.18.0.jar:/Users/chinthalarohithkumar/.m2/repository/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar:/Users/chinthalarohithkumar/.m2/repository/com/zaxxer/SparseBitSet/1.3/SparseBitSet-1.3.jar:/Users/chinthalarohithkumar/.m2/repository/org/apache/poi/poi-ooxml-schemas/4.1.2/poi-ooxml-schemas-4.1.2.jar:/Users/chinthalarohithkumar/.m2/repository/org/aeonbits/owner/owner/1.0.12/owner-1.0.12.jar:/Users/chinthalarohithkumar/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/Users/chinthalarohithkumar/.m2/repository/org/slf4j/jcl-over-slf4j/2.0.9/jcl-over-slf4j-2.0.9.jar:/Users/chinthalarohithkumar/.m2/repository/ch/qos/logback/logback-classic/1.5.21/logback-classic-1.5.21.jar:/Users/chinthalarohithkumar/.m2/repository/ch/qos/logback/logback-core/1.5.21/logback-core-1.5.21.jar:/Users/chinthalarohithkumar/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/chinthalarohithkumar/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="surefire.test.class.path" value="/Users/rohithkumar/Desktop/Ui-Playwright-frameWork/target/test-classes:/Users/rohithkumar/Desktop/Ui-Playwright-frameWork/target/classes:/Users/rohithkumar/.m2/repository/com/microsoft/playwright/playwright/1.56.0/playwright-1.56.0.jar:/Users/rohithkumar/.m2/repository/com/google/code/gson/gson/2.13.2/gson-2.13.2.jar:/Users/rohithkumar/.m2/repository/com/google/errorprone/error_prone_annotations/2.41.0/error_prone_annotations-2.41.0.jar:/Users/rohithkumar/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/rohithkumar/.m2/repository/com/microsoft/playwright/driver/1.56.0/driver-1.56.0.jar:/Users/rohithkumar/.m2/repository/com/microsoft/playwright/driver-bundle/1.56.0/driver-bundle-1.56.0.jar:/Users/rohithkumar/.m2/repository/org/testng/testng/7.8.0/testng-7.8.0.jar:/Users/rohithkumar/.m2/repository/com/beust/jcommander/1.82/jcommander-1.82.jar:/Users/rohithkumar/.m2/repository/org/webjars/jquery/3.6.1/jquery-3.6.1.jar:/Users/rohithkumar/.m2/repository/io/qameta/allure/allure-cucumber7-jvm/2.31.0/allure-cucumber7-jvm-2.31.0.jar:/Users/rohithkumar/.m2/repository/io/qameta/allure/allure-java-commons/2.31.0/allure-java-commons-2.31.0.jar:/Users/rohithkumar/.m2/repository/io/qameta/allure/allure-model/2.31.0/allure-model-2.31.0.jar:/Users/rohithkumar/.m2/repository/io/qameta/allure/allure-testng/2.31.0/allure-testng-2.31.0.jar:/Users/rohithkumar/.m2/repository/io/qameta/allure/allure-test-filter/2.31.0/allure-test-filter-2.31.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/cucumber-java/7.32.0/cucumber-java-7.32.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/cucumber-core/7.32.0/cucumber-core-7.32.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/cucumber-gherkin/7.32.0/cucumber-gherkin-7.32.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/cucumber-gherkin-messages/7.32.0/cucumber-gherkin-messages-7.32.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/gherkin/36.1.0/gherkin-36.1.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/messages/30.1.0/messages-30.1.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/pretty-formatter/2.4.1/pretty-formatter-2.4.1.jar:/Users/rohithkumar/.m2/repository/io/cucumber/query/14.7.0/query-14.7.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/teamcity-formatter/0.2.0/teamcity-formatter-0.2.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/testng-xml-formatter/0.7.0/testng-xml-formatter-0.7.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/usage-formatter/0.1.0/usage-formatter-0.1.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/tag-expressions/8.0.0/tag-expressions-8.0.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/cucumber-expressions/18.0.1/cucumber-expressions-18.0.1.jar:/Users/rohithkumar/.m2/repository/io/cucumber/cucumber-json-formatter/0.3.1/cucumber-json-formatter-0.3.1.jar:/Users/rohithkumar/.m2/repository/io/cucumber/datatable/7.32.0/datatable-7.32.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/cucumber-plugin/7.32.0/cucumber-plugin-7.32.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/docstring/7.32.0/docstring-7.32.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/html-formatter/22.1.0/html-formatter-22.1.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/junit-xml-formatter/0.11.0/junit-xml-formatter-0.11.0.jar:/Users/rohithkumar/.m2/repository/io/cucumber/ci-environment/12.0.0/ci-environment-12.0.0.jar:/Users/rohithkumar/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/rohithkumar/.m2/repository/io/cucumber/cucumber-testng/7.32.0/cucumber-testng-7.32.0.jar:/Users/rohithkumar/.m2/repository/org/apache/poi/poi-ooxml/5.5.1/poi-ooxml-5.5.1.jar:/Users/rohithkumar/.m2/repository/org/apache/poi/poi-ooxml-lite/5.5.1/poi-ooxml-lite-5.5.1.jar:/Users/rohithkumar/.m2/repository/org/apache/xmlbeans/xmlbeans/5.3.0/xmlbeans-5.3.0.jar:/Users/rohithkumar/.m2/repository/org/apache/commons/commons-compress/1.28.0/commons-compress-1.28.0.jar:/Users/rohithkumar/.m2/repository/org/apache/commons/commons-lang3/3.18.0/commons-lang3-3.18.0.jar:/Users/rohithkumar/.m2/repository/commons-io/commons-io/2.21.0/commons-io-2.21.0.jar:/Users/rohithkumar/.m2/repository/com/github/virtuald/curvesapi/1.08/curvesapi-1.08.jar:/Users/rohithkumar/.m2/repository/org/apache/logging/log4j/log4j-api/2.24.3/log4j-api-2.24.3.jar:/Users/rohithkumar/.m2/repository/org/apache/commons/commons-collections4/4.5.0/commons-collections4-4.5.0.jar:/Users/rohithkumar/.m2/repository/org/apache/poi/poi/5.4.1/poi-5.4.1.jar:/Users/rohithkumar/.m2/repository/commons-codec/commons-codec/1.18.0/commons-codec-1.18.0.jar:/Users/rohithkumar/.m2/repository/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar:/Users/rohithkumar/.m2/repository/com/zaxxer/SparseBitSet/1.3/SparseBitSet-1.3.jar:/Users/rohithkumar/.m2/repository/org/apache/poi/poi-ooxml-schemas/4.1.2/poi-ooxml-schemas-4.1.2.jar:/Users/rohithkumar/.m2/repository/org/aeonbits/owner/owner/1.0.12/owner-1.0.12.jar:/Users/rohithkumar/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/Users/rohithkumar/.m2/repository/org/slf4j/jcl-over-slf4j/2.0.9/jcl-over-slf4j-2.0.9.jar:/Users/rohithkumar/.m2/repository/ch/qos/logback/logback-classic/1.5.21/logback-classic-1.5.21.jar:/Users/rohithkumar/.m2/repository/ch/qos/logback/logback-core/1.5.21/logback-core-1.5.21.jar:/Users/rohithkumar/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/rohithkumar/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/rohithkumar/.m2/repository/org/aspectj/aspectjweaver/1.9.20.1/aspectjweaver-1.9.20.1.jar:/Users/rohithkumar/.m2/repository/com/squareup/okhttp3/okhttp/4.12.0/okhttp-4.12.0.jar:/Users/rohithkumar/.m2/repository/com/squareup/okio/okio/3.6.0/okio-3.6.0.jar:/Users/rohithkumar/.m2/repository/com/squareup/okio/okio-jvm/3.6.0/okio-jvm-3.6.0.jar:/Users/rohithkumar/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.9.10/kotlin-stdlib-common-1.9.10.jar:/Users/rohithkumar/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.8.21/kotlin-stdlib-jdk8-1.8.21.jar:/Users/rohithkumar/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.8.21/kotlin-stdlib-1.8.21.jar:/Users/rohithkumar/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/Users/rohithkumar/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.8.21/kotlin-stdlib-jdk7-1.8.21.jar:/Users/rohithkumar/.m2/repository/org/json/json/20231013/json-20231013.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="user.home" value="/Users/chinthalarohithkumar"/>
+    <property name="user.home" value="/Users/rohithkumar"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.version.date" value="2025-04-15"/>
-    <property name="java.home" value="/opt/homebrew/Cellar/openjdk@17/17.0.15/libexec/openjdk.jdk/Contents/Home"/>
+    <property name="java.version.date" value="2025-10-21"/>
+    <property name="java.home" value="/opt/homebrew/Cellar/openjdk/25.0.1/libexec/openjdk.jdk/Contents/Home"/>
     <property name="file.separator" value="/"/>
-    <property name="basedir" value="/Users/chinthalarohithkumar/Desktop/fixes/selenium/Playwright"/>
+    <property name="basedir" value="/Users/rohithkumar/Desktop/Ui-Playwright-frameWork"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/Users/chinthalarohithkumar/Desktop/fixes/selenium/Playwright/target/surefire/surefirebooter-20251203130026367_3.jar"/>
+    <property name="apple.awt.application.name" value="ForkedBooter"/>
+    <property name="surefire.real.class.path" value="/Users/rohithkumar/Desktop/Ui-Playwright-frameWork/target/surefire/surefirebooter-20260204131705817_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|meet.google.com|*.meet.google.com"/>
-    <property name="java.runtime.version" value="17.0.15+0"/>
-    <property name="user.name" value="chinthalarohithkumar"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="25.0.1"/>
+    <property name="user.name" value="rohithkumar"/>
+    <property name="stdout.encoding" value="UTF-8"/>
     <property name="path.separator" value=":"/>
-    <property name="os.version" value="26.0.1"/>
+    <property name="os.version" value="26.2"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
     <property name="java.vendor.version" value="Homebrew"/>
-    <property name="localRepository" value="/Users/chinthalarohithkumar/.m2/repository"/>
+    <property name="localRepository" value="/Users/rohithkumar/.m2/repository"/>
     <property name="java.vendor.url.bug" value="https://github.com/Homebrew/homebrew-core/issues"/>
-    <property name="java.io.tmpdir" value="/var/folders/g8/0xwzbp6x6mg598lr7qq1x9lr0000gn/T/"/>
-    <property name="java.version" value="17.0.15"/>
-    <property name="cucumber.filter.tags" value="@FormPage"/>
-    <property name="user.dir" value="/Users/chinthalarohithkumar/Desktop/fixes/selenium/Playwright"/>
+    <property name="java.io.tmpdir" value="/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/"/>
+    <property name="java.version" value="25.0.1"/>
+    <property name="cucumber.filter.tags" value="@Agents"/>
+    <property name="user.dir" value="/Users/rohithkumar/Desktop/Ui-Playwright-frameWork"/>
     <property name="os.arch" value="aarch64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="env" value="alpha"/>
+    <property name="env" value="google"/>
     <property name="native.encoding" value="UTF-8"/>
-    <property name="java.library.path" value="/Users/chinthalarohithkumar/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.library.path" value="/Users/rohithkumar/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
     <property name="java.vendor" value="Homebrew"/>
-    <property name="java.vm.version" value="17.0.15+0"/>
-    <property name="java.specification.maintenance.version" value="1"/>
+    <property name="java.vm.version" value="25.0.1"/>
+    <property name="stdin.encoding" value="UTF-8"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
-    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16|meet.google.com|*.meet.google.com"/>
-    <property name="java.class.version" value="61.0"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.class.version" value="69.0"/>
   </properties>
-  <testcase name="runScenario[&quot;To Test Login with valid cred&apos;s&quot;, &quot;From Page - To Test Login&quot;](1)" classname="runner.CucumberRunnerTest" time="11.965">
+  <testcase name="runScenario[&quot;User adds a laptop to the cart and removes it successfully&quot;, &quot;Forms Page End-to-End Validation&quot;](1)" classname="runner.CucumberRunnerTest" time="224.237">
+    <failure message="Element not found or not clickable within timeout: .placeholder" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Element not found or not clickable within timeout: .placeholder
+	at utilze.playwright.click(playwright.java:76)
+	at pages.Ai.Ai.configureChatGpt(Ai.java:25)
+	at steps.Ai.AISteps.iConfiguredTheChatGptForFetchingTheParamsBasedOnTheQuery(AISteps.java:19)
+	at ✽.I configured the chatGpt for Fetching the params: "Accuracy, Hallucination, Relevance, Clarity, Completeness" based on the query(file:///Users/rohithkumar/Desktop/Ui-Playwright-frameWork/src/test/resources/features/Ai/TestingAI.feature:8)
+Caused by: com.microsoft.playwright.TimeoutError: Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/progress.js:68:28)
+    at FrameDispatcher._runCommand (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:95:31)
+    at DispatcherConnection.dispatch (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:329:39)
+}
+Call log:
+-   - waiting for locator(".placeholder")
+
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:138)
+	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:131)
+	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:124)
+	at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:241)
+	at com.microsoft.playwright.impl.FrameImpl.click(FrameImpl.java:232)
+	at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:164)
+	at com.microsoft.playwright.Locator.click(Locator.java:2500)
+	at utilze.playwright.click(playwright.java:71)
+	... 3 more
+Caused by: com.microsoft.playwright.TimeoutError: Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/progress.js:68:28)
+    at FrameDispatcher._runCommand (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:95:31)
+    at DispatcherConnection.dispatch (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:329:39)
+}
+Call log:
+-   - waiting for locator(".placeholder")
+
+	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:257)
+	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:214)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:136)
+	... 10 more
+]]></failure>
     <system-out><![CDATA[
 ========================================================================================================================
 TEST SUITE STARTED
 ========================================================================================================================
-Environment: alpha | Browser: chrome | Headless: true | BaseUrl: https://alphatestingplayground.vercel.app/
+Environment: google | Browser: chrome | Headless: false | BaseUrl: https://chatgpt.com
 ========================================================================================================================
 
 
-@admin @FormPage @LoginValidCases
-Scenario Outline: To Test Login with valid cred's                # src/test/resources/features/HomePage/Login.feature:22
+@Agents @ui @regression @Agents
+Scenario: User adds a laptop to the cart and removes it successfully                                                                     # src/test/resources/features/Ai/TestingAI.feature:15
 
-▶ Starting: To Test Login with valid cred's
-  Tags: [@LoginValidCases]
-  ✔ Given user should be on the HomePage                         # steps.Login.LoginSteps.userShouldBeOnTheHomePage()
-  ✔ When user enter the "valid" Email in the Email Address field # steps.Login.LoginSteps.userEnterTheEmailInTheEmailAddressField(java.lang.String)
-  ✔ And user enter the "valid" password in the password field    # steps.Login.LoginSteps.userEnterThePasswordInThePasswordField(java.lang.String)
-  ✔ And click on the login button                                # steps.Login.LoginSteps.clickOnTheLoginButton()
-  ✔ Then user should land on the overview page                   # steps.Login.LoginSteps.userShouldLandOnTheOverviewPage()
-✓ PASSED: To Test Login with valid cred's (11s)
-]]></system-out>
-  </testcase>
-  <testcase name="runScenario[&quot;To Test Login with valid cred&apos;s&quot;, &quot;From Page - To Test Login&quot;](2)" classname="runner.CucumberRunnerTest" time="1.01">
-    <system-out><![CDATA[
-@admin @FormPage @LoginInvalidCases
-Scenario Outline: To Test Login with valid cred's                                                 # src/test/resources/features/HomePage/Login.feature:34
+▶ Starting: User adds a laptop to the cart and removes it successfully
+  ✔ Given I navigate to the chatGpt                                                                                                      # steps.Ai.AISteps.iNavigateToTheChatGpt()
 
-▶ Starting: To Test Login with valid cred's
-  Tags: [@LoginInvalidCases]
-  ✔ Given user should be on the HomePage                                                          # steps.Login.LoginSteps.userShouldBeOnTheHomePage()
-  ✔ When user enter the "without at the rate" Email in the Email Address field                    # steps.Login.LoginSteps.userEnterTheEmailInTheEmailAddressField(java.lang.String)
-  ✔ And user enter the "without at the rate" password in the password field                       # steps.Login.LoginSteps.userEnterThePasswordInThePasswordField(java.lang.String)
-  ✔ And click on the login button                                                                 # steps.Login.LoginSteps.clickOnTheLoginButton()
-  ✔ Then user should see the error message "Email must contain '@' symbol"                        # steps.Login.LoginSteps.userShouldSeeTheErrorMessage(java.lang.String)
-  ✔ Then user should see the error message "Password must contain at least one special character" # steps.Login.LoginSteps.userShouldSeeTheErrorMessage(java.lang.String)
-  ✔ And user should not land on the overview page                                                 # steps.Login.LoginSteps.userShouldNotLandOnTheOverviewPage()
-✓ PASSED: To Test Login with valid cred's (0s)
+[ERROR] utilze.playwright - Element not found or not clickable within timeout: .placeholder
+  ✘ And I configured the chatGpt for Fetching the params: "Accuracy, Hallucination, Relevance, Clarity, Completeness" based on the query # steps.Ai.AISteps.iConfiguredTheChatGptForFetchingTheParamsBasedOnTheQuery(java.lang.String)
+        java.lang.AssertionError: Element not found or not clickable within timeout: .placeholder
+        	at utilze.playwright.click(playwright.java:76)
+        	at pages.Ai.Ai.configureChatGpt(Ai.java:25)
+        	at steps.Ai.AISteps.iConfiguredTheChatGptForFetchingTheParamsBasedOnTheQuery(AISteps.java:19)
+        	at ✽.I configured the chatGpt for Fetching the params: "Accuracy, Hallucination, Relevance, Clarity, Completeness" based on the query(file:///Users/rohithkumar/Desktop/Ui-Playwright-frameWork/src/test/resources/features/Ai/TestingAI.feature:8)
+        Caused by: com.microsoft.playwright.TimeoutError: Error {
+          message='Timeout 30000ms exceeded.
+          name='TimeoutError
+          stack='TimeoutError: Timeout 30000ms exceeded.
+            at ProgressController.run (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/progress.js:68:28)
+            at FrameDispatcher._runCommand (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:95:31)
+            at DispatcherConnection.dispatch (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:329:39)
+        }
+        Call log:
+        -   - waiting for locator(".placeholder")
+        
+        	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
+        	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:138)
+        	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:131)
+        	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:124)
+        	at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:241)
+        	at com.microsoft.playwright.impl.FrameImpl.click(FrameImpl.java:232)
+        	at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:164)
+        	at com.microsoft.playwright.Locator.click(Locator.java:2500)
+        	at utilze.playwright.click(playwright.java:71)
+        	... 3 more
+        Caused by: com.microsoft.playwright.TimeoutError: Error {
+          message='Timeout 30000ms exceeded.
+          name='TimeoutError
+          stack='TimeoutError: Timeout 30000ms exceeded.
+            at ProgressController.run (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/progress.js:68:28)
+            at FrameDispatcher._runCommand (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:95:31)
+            at DispatcherConnection.dispatch (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:329:39)
+        }
+        Call log:
+        -   - waiting for locator(".placeholder")
+        
+        	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:257)
+        	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:214)
+        	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:136)
+        	... 10 more
+  ↷ When the user clicks on the "Phones" category in the categories section                                                              # steps.cart.cartSteps.theUserClicksOnTheCategoryInTheCategoriesSection(java.lang.String)
+  ↷ Then the list of laptops should be displayed                                                                                         # steps.cart.cartSteps.theListOfLaptopsShouldBeDisplayed()
+✗ FAILED: User adds a laptop to the cart and removes it successfully (51s)
+
+        Embedding Failed Screenshot [image/png 45786 bytes]
+
+  Screenshot: User_adds_a_laptop_to_the_cart_and_removes_it_successfully_131759.png
+  URL: https://gemini.google.com/app
 ]]></system-out>
   </testcase>
 </testsuite>

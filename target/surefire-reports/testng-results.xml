@@ -1,59 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-12-03T13:00:27 IST" name="Suite1" finished-at="2025-12-03T13:00:44 IST" duration-ms="16870">
+  <suite started-at="2026-02-04T13:17:07 IST" name="Suite1" finished-at="2026-02-04T13:20:52 IST" duration-ms="225130">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberRunnerTest@2e179f3e]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberRunnerTest@3fe46690]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-12-03T13:00:27 IST" name="Cucumber Tests" finished-at="2025-12-03T13:00:44 IST" duration-ms="16870">
+    <test started-at="2026-02-04T13:17:07 IST" name="Cucumber Tests" finished-at="2026-02-04T13:20:52 IST" duration-ms="225130">
       <class name="runner.CucumberRunnerTest">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.CucumberRunnerTest@2e179f3e]" started-at="2025-12-03T13:00:27 IST" name="setUpClass" finished-at="2025-12-03T13:00:27 IST" duration-ms="399" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.CucumberRunnerTest@3fe46690]" started-at="2026-02-04T13:17:07 IST" name="setUpClass" finished-at="2026-02-04T13:17:07 IST" duration-ms="664" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@5bccef9f]]>
+                <![CDATA[org.testng.TestRunner@2e66f1bd]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberRunnerTest@2e179f3e]" started-at="2025-12-03T13:00:27 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-12-03T13:00:39 IST" duration-ms="11963" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberRunnerTest@3fe46690]" started-at="2026-02-04T13:17:07 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-04T13:20:51 IST" duration-ms="224130" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA["To Test Login with valid cred's"]]>
+                <![CDATA["User adds a laptop to the cart and removes it successfully"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["From Page - To Test Login"]]>
+                <![CDATA["Forms Page End-to-End Validation"]]>
               </value>
             </param>
           </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Element not found or not clickable within timeout: .placeholder]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Element not found or not clickable within timeout: .placeholder
+at utilze.playwright.click(playwright.java:76)
+at pages.Ai.Ai.configureChatGpt(Ai.java:25)
+at steps.Ai.AISteps.iConfiguredTheChatGptForFetchingTheParamsBasedOnTheQuery(AISteps.java:19)
+at ✽.I configured the chatGpt for Fetching the params: "Accuracy, Hallucination, Relevance, Clarity, Completeness" based on the query(file:///Users/rohithkumar/Desktop/Ui-Playwright-frameWork/src/test/resources/features/Ai/TestingAI.feature:8)
+Caused by: com.microsoft.playwright.TimeoutError: Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/progress.js:68:28)
+    at FrameDispatcher._runCommand (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:95:31)
+    at DispatcherConnection.dispatch (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:329:39)
+}
+Call log:
+-   - waiting for locator(".placeholder")
+
+at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
+at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:138)
+at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:131)
+at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:124)
+at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:241)
+at com.microsoft.playwright.impl.FrameImpl.click(FrameImpl.java:232)
+at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:164)
+at com.microsoft.playwright.Locator.click(Locator.java:2500)
+at utilze.playwright.click(playwright.java:71)
+... 3 more
+Caused by: com.microsoft.playwright.TimeoutError: Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/progress.js:68:28)
+    at FrameDispatcher._runCommand (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:95:31)
+    at DispatcherConnection.dispatch (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:329:39)
+}
+Call log:
+-   - waiting for locator(".placeholder")
+
+at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:257)
+at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:214)
+at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:136)
+... 10 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberRunnerTest@2e179f3e]" started-at="2025-12-03T13:00:39 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-12-03T13:00:40 IST" duration-ms="1012" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["To Test Login with valid cred's"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["From Page - To Test Login"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.CucumberRunnerTest@2e179f3e]" started-at="2025-12-03T13:00:40 IST" name="tearDownClass" finished-at="2025-12-03T13:00:44 IST" duration-ms="3476" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.CucumberRunnerTest@3fe46690]" started-at="2026-02-04T13:20:51 IST" name="tearDownClass" finished-at="2026-02-04T13:20:52 IST" duration-ms="269" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

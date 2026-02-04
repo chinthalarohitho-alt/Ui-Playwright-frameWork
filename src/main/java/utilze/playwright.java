@@ -6,8 +6,10 @@ import com.microsoft.playwright.options.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.io.IOException;
 import java.util.*;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
@@ -20,6 +22,42 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 public class playwright extends FrameWorkInitialization {
     private static final Logger logger = LoggerFactory.getLogger(playwright.class);
     private static final Random random = new Random();
+    
+    // Global variable storage shared across all instances
+    private static final Map<String, Object> variables = new HashMap<>();
+
+    // ==================== VARIABLE STORAGE METHODS ====================
+
+    /**
+     * Stores a value in the global variable map.
+     * @param key The key to identify the variable
+     * @param value The value to store
+     */
+    public void setVariable(String key, Object value) {
+        variables.put(key, value);
+        logger.debug("Stored variable: {} = {}", key, value);
+    }
+
+    /**
+     * Retrieves a value from the global variable map.
+     * @param key The key of the variable
+     * @return The value as Object, or null if not found
+     */
+    public Object getVariable(String key) {
+        Object value = variables.get(key);
+        logger.debug("Retrieved variable: {} = {}", key, value);
+        return value;
+    }
+
+    /**
+     * Retrieves a value as a String.
+     * @param key The key of the variable
+     * @return The value as String, or empty string if null
+     */
+    public String getVariableAsString(String key) {
+        Object value = variables.get(key);
+        return value != null ? value.toString() : "";
+    }
 
     // ==================== CLICK ACTIONS ====================
 
@@ -328,6 +366,34 @@ public class playwright extends FrameWorkInitialization {
     }
 
     /**
+     * Waits for element to become invisible/detached with custom timeout.
+     * Polls every 500ms. Fails test if timeout exceeded.
+     */
+    public void waitForElementInvisibility(String locator, int timeoutMs) {
+        try {
+            logger.debug("Waiting for element invisibility: {} (timeout: {}ms)", locator, timeoutMs);
+            getPage().locator(locator).waitFor(new Locator.WaitForOptions()
+                    .setState(WaitForSelectorState.HIDDEN)
+                    .setTimeout(timeoutMs));
+            logger.debug("Element became invisible: {}", locator);
+        } catch (TimeoutError e) {
+            String error = String.format(
+                    "Element did NOT become invisible within %dms: %s",
+                    timeoutMs, locator
+            );
+            logger.error(error, e);
+            throw new AssertionError(error, e);
+        }
+    }
+
+    /**
+     * Waits for element invisibility with 30 second default timeout.
+     */
+    public void waitForElementInvisibility(String locator) {
+        waitForElementInvisibility(locator, 30000);
+    }
+
+    /**
      * Waits for page to finish loading.
      * Use after navigation or form submission.
      */
@@ -539,4 +605,59 @@ public class playwright extends FrameWorkInitialization {
         getPage().waitForTimeout(milliseconds);
     }
 
+    // ==================== FILE HANDLING ====================
+
+    /**
+     * Reads text file content and returns as String.
+     * @param filePath The absolute path to the text file
+     * @return The content of the file as String
+     */
+    public String readTextFile(String filePath) {
+        if (filePath == null || filePath.isEmpty()) {
+            throw new IllegalArgumentException("File path cannot be null or empty");
+        }
+
+        try {
+            Path path = Paths.get(filePath);
+            if (!path.toFile().exists()) {
+                throw new IllegalArgumentException("File does not exist: " + filePath);
+            }
+            return new String(Files.readAllBytes(path));
+        } catch (IOException e) {
+            String error = String.format("Failed to read file: %s", filePath);
+            logger.error(error, e);
+            throw new RuntimeException(error, e);
+        }
+    }
+
+    /**
+     * Retrieves a file path string from src/main/java/config/FilePaths.txt based on a keyword.
+     * Format in file: keyword = "path/to/file"
+     * @param keyword The key to look for
+     * @return The file path associated with the keyword
+     */
+    public String getFilePath(String keyword) {
+        String configPath = "src/main/java/config/FilePaths.txt";
+        try {
+            List<String> lines = Files.readAllLines(Paths.get(configPath));
+            for (String line : lines) {
+                // Determine split logic - simply looking for the keyword at the start
+                // Handling format: key = "value"
+                if (line.trim().startsWith(keyword)) {
+                    String[] parts = line.split("=", 2);
+                    if (parts.length >= 2) {
+                        // Get value part, trim whitespace and quotes
+                        return parts[1].trim().replace("\"", "").replace("\\", "/");
+                    }
+                }
+            }
+        } catch (IOException e) {
+            String error = String.format("Failed to read config file: %s", configPath);
+            logger.error(error, e);
+            throw new RuntimeException(error, e);
+        }
+        throw new IllegalArgumentException("Keyword not found in FilePaths.txt: " + keyword);
+    }
+
+    
 }

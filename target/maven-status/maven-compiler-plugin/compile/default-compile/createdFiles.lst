@@ -1,11 +1,13 @@
 pages/common/GlobalPaths.class
 config/Settings.class
 pages/HomePage/Login.class
+pages/DemoBlaze_cart/cartpagePaths.class
 Initialization/FrameWorkInitialization.class
 utilze/playwright.class
 pages/FormPage/FormPagePaths.class
 config/frameWorkConfig.class
 pages/FormPage/Form.class
+pages/DemoBlaze_cart/cart.class
 config/ConfigReader.class
 config/EnvironmentConfig.class
 pages/HomePage/LoginPath.class

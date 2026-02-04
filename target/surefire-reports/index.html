@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Suite1" class="navigator-link">
-              <span class="suite-name border-passed">Suite1</span>
+              <span class="suite-name border-failed">Suite1</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -92,26 +92,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Suite1" class="hide-methods passed suite-Suite1"> (hide)</a> <!-- hide-methods passed suite-Suite1 -->
-                      <a href="#" panel-name="suite-Suite1" class="show-methods passed suite-Suite1"> (show)</a> <!-- show-methods passed suite-Suite1 -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite1" class="hide-methods failed suite-Suite1"> (hide)</a> <!-- hide-methods failed suite-Suite1 -->
+                      <a href="#" panel-name="suite-Suite1" class="show-methods failed suite-Suite1"> (show)</a> <!-- show-methods failed suite-Suite1 -->
                     </span>
-                    <div class="method-list-content passed suite-Suite1">
+                    <div class="method-list-content failed suite-Suite1">
                       <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite1" title="runner.CucumberRunnerTest" class="method navigator-link" hash-for-method="runScenario(&quot;To Test Login with valid cred&#039;s&quot;, &quot;From Page - To Test Login&quot;)">runScenario("To Test Login with valid cred's", "From Page - To Test Login")</a> <!-- method navigator-link -->
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="runner.CucumberRunnerTest" class="method navigator-link" hash-for-method="runScenario(&quot;User adds a laptop to the cart and removes it successfully&quot;, &quot;Forms Page End-to-End Validation&quot;)">runScenario("User adds a laptop to the cart and removes it successfully", "Forms Page End-to-End Validation")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite1" title="runner.CucumberRunnerTest" class="method navigator-link" hash-for-method="runScenario(&quot;To Test Login with valid cred&#039;s&quot;, &quot;From Page - To Test Login&quot;)">runScenario("To Test Login with valid cred's", "From Page - To Test Login")</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content passed suite-Suite1 -->
+                    </div> <!-- method-list-content failed suite-Suite1 -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -123,38 +118,71 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite1" class="panel Suite1">
-          <div class="suite-Suite1-class-passed">
+          <div class="suite-Suite1-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
+              <img src="failed.png"/>
               <span class="class-name">runner.CucumberRunnerTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;To Test Login with valid cred&#039;s&quot;, &quot;From Page - To Test Login&quot;)">
-                  </a> <!-- runScenario("To Test Login with valid cred's", "From Page - To Test Login") -->
+                  <a name="runScenario(&quot;User adds a laptop to the cart and removes it successfully&quot;, &quot;Forms Page End-to-End Validation&quot;)">
+                  </a> <!-- runScenario("User adds a laptop to the cart and removes it successfully", "Forms Page End-to-End Validation") -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("To Test Login with valid cred's","From Page - To Test Login")</span>
-                  <em>
-(Runs Cucumber Scenarios)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="runScenario(&quot;To Test Login with valid cred&#039;s&quot;, &quot;From Page - To Test Login&quot;)">
-                  </a> <!-- runScenario("To Test Login with valid cred's", "From Page - To Test Login") -->
-                  <span class="method-name">runScenario</span>
-                  <span class="parameters">("To Test Login with valid cred's","From Page - To Test Login")</span>
+                  <span class="parameters">("User adds a laptop to the cart and removes it successfully","Forms Page End-to-End Validation")</span>
+                  <div class="stack-trace">java.lang.AssertionError: Element not found or not clickable within timeout: .placeholder
+	at utilze.playwright.click(playwright.java:76)
+	at pages.Ai.Ai.configureChatGpt(Ai.java:25)
+	at steps.Ai.AISteps.iConfiguredTheChatGptForFetchingTheParamsBasedOnTheQuery(AISteps.java:19)
+	at ✽.I configured the chatGpt for Fetching the params: &quot;Accuracy, Hallucination, Relevance, Clarity, Completeness&quot; based on the query(file:///Users/rohithkumar/Desktop/Ui-Playwright-frameWork/src/test/resources/features/Ai/TestingAI.feature:8)
+Caused by: com.microsoft.playwright.TimeoutError: Error {
+  message=&apos;Timeout 30000ms exceeded.
+  name=&apos;TimeoutError
+  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/progress.js:68:28)
+    at FrameDispatcher._runCommand (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:95:31)
+    at DispatcherConnection.dispatch (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:329:39)
+}
+Call log:
+-   - waiting for locator(&quot;.placeholder&quot;)
+
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:138)
+	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:131)
+	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:124)
+	at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:241)
+	at com.microsoft.playwright.impl.FrameImpl.click(FrameImpl.java:232)
+	at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:164)
+	at com.microsoft.playwright.Locator.click(Locator.java:2500)
+	at utilze.playwright.click(playwright.java:71)
+	... 3 more
+Caused by: com.microsoft.playwright.TimeoutError: Error {
+  message=&apos;Timeout 30000ms exceeded.
+  name=&apos;TimeoutError
+  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/progress.js:68:28)
+    at FrameDispatcher._runCommand (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:95:31)
+    at DispatcherConnection.dispatch (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:329:39)
+}
+Call log:
+-   - waiting for locator(&quot;.placeholder&quot;)
+
+	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:257)
+	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:214)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:136)
+	... 10 more
+
+</div> <!-- stack-trace -->
                   <em>
 (Runs Cucumber Scenarios)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite1-class-passed -->
+          </div> <!-- suite-Suite1-class-failed -->
         </div> <!-- panel Suite1 -->
         <div panel-name="test-xml-Suite1" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/Users/chinthalarohithkumar/Desktop/fixes/selenium/Playwright/TestNg.xml</span>
+            <span class="header-content">/Users/rohithkumar/Desktop/Ui-Playwright-frameWork/TestNg.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -211,20 +239,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'runner.CucumberRunnerTest')
-data.setCell(0, 3, 11963);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'runScenario')
-data.setCell(1, 2, 'runner.CucumberRunnerTest')
-data.setCell(1, 3, 1012);
+data.setCell(0, 3, 224130);
 window.suiteTableData['Suite1']= { tableData: data, tableDiv: 'times-div-Suite1'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 12 seconds</span>
+              <span class="suite-total-time">Total running time: 3 minutes</span>
               <div id="times-div-Suite1">
               </div> <!-- times-div-Suite1 -->
             </div> <!-- times-div -->
@@ -252,20 +276,18 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">runner.CucumberRunnerTest</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUpClass(org.testng.TestRunner@5bccef9f)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@2e66f1bd)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">runScenario("To Test Login with valid cred's", "From Page - To Test Login")</span>
-                <span class="method-start">405 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">runScenario("To Test Login with valid cred's", "From Page - To Test Login")</span>
-                <span class="method-start">12372 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">runScenario("User adds a laptop to the cart and removes it successfully", "Forms Page End-to-End Validation")</span>
+                <span class="method-start">669 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">13385 ms</span>
+                <span class="method-start">224851 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
