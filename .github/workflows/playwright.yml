@@ -60,8 +60,8 @@ jobs:
       - name: Check and Prepare Allure History
         if: always()
         run: |
-          # If allure-history doesn't exist, create it.
-          # If it exists but is empty, add a placeholder to ensure git has something to commit.
+          # Fix potential permission issues caused by Docker-based actions
+          sudo chown -R $USER:$USER .
           mkdir -p allure-history
           if [ -z "$(ls -A allure-history)" ]; then
             echo "<html><body><h1>Allure Report is being initialized. Please check back after next run.</h1></body></html>" > allure-history/index.html
