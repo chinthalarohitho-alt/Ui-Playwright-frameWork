@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Cucumber Tests</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Feb 04 13:17:07 IST 2026</td>
+<td>Started on:</td><td>Wed Feb 04 18:37:33 IST 2026</td>
 </tr>
-<tr><td>Total time:</td><td>225 seconds (225130 ms)</td>
+<tr><td>Total time:</td><td>13 seconds (13538 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,8 +67,8 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td><b>Attribute(s)</b></td>
 <td width="30%"><b>Exception</b></td>
@@ -76,93 +76,10 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='runner.CucumberRunnerTest.runScenario()'><b>runScenario</b><br>Test class: runner.CucumberRunnerTest<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User adds a laptop to the cart and removes it successfully", "Forms Page End-to-End Validation"</td>
-<td><div><pre>java.lang.AssertionError: Element not found or not clickable within timeout: .placeholder
-	at utilze.playwright.click(playwright.java:76)
-	at pages.Ai.Ai.configureChatGpt(Ai.java:25)
-	at steps.Ai.AISteps.iConfiguredTheChatGptForFetchingTheParamsBasedOnTheQuery(AISteps.java:19)
-	at ✽.I configured the chatGpt for Fetching the params: &quot;Accuracy, Hallucination, Relevance, Clarity, Completeness&quot; based on the query(file:///Users/rohithkumar/Desktop/Ui-Playwright-frameWork/src/test/resources/features/Ai/TestingAI.feature:8)
-Caused by: com.microsoft.playwright.TimeoutError: Error {
-  message=&apos;Timeout 30000ms exceeded.
-  name=&apos;TimeoutError
-  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
-    at ProgressController.run (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/progress.js:68:28)
-    at FrameDispatcher._runCommand (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:95:31)
-    at DispatcherConnection.dispatch (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:329:39)
-}
-Call log:
--   - waiting for locator(&quot;.placeholder&quot;)
-
-	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
-	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:138)
-	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:131)
-	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:124)
-	at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:241)
-	at com.microsoft.playwright.impl.FrameImpl.click(FrameImpl.java:232)
-	at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:164)
-	at com.microsoft.playwright.Locator.click(Locator.java:2500)
-	at utilze.playwright.click(playwright.java:71)
-	... 3 more
-Caused by: com.microsoft.playwright.TimeoutError: Error {
-  message=&apos;Timeout 30000ms exceeded.
-  name=&apos;TimeoutError
-  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
-    at ProgressController.run (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/progress.js:68:28)
-    at FrameDispatcher._runCommand (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:95:31)
-    at DispatcherConnection.dispatch (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:329:39)
-}
-Call log:
--   - waiting for locator(&quot;.placeholder&quot;)
-
-	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:257)
-	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:214)
-	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:136)
-	... 10 more
-</pre></div><a href='#' onClick='toggleBox("stack-trace1618043679", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1618043679'><pre>java.lang.AssertionError: Element not found or not clickable within timeout: .placeholder
-	at utilze.playwright.click(playwright.java:76)
-	at pages.Ai.Ai.configureChatGpt(Ai.java:25)
-	at steps.Ai.AISteps.iConfiguredTheChatGptForFetchingTheParamsBasedOnTheQuery(AISteps.java:19)
-	at ✽.I configured the chatGpt for Fetching the params: &quot;Accuracy, Hallucination, Relevance, Clarity, Completeness&quot; based on the query(file:///Users/rohithkumar/Desktop/Ui-Playwright-frameWork/src/test/resources/features/Ai/TestingAI.feature:8)
-Caused by: com.microsoft.playwright.TimeoutError: Error {
-  message=&apos;Timeout 30000ms exceeded.
-  name=&apos;TimeoutError
-  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
-    at ProgressController.run (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/progress.js:68:28)
-    at FrameDispatcher._runCommand (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:95:31)
-    at DispatcherConnection.dispatch (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:329:39)
-}
-Call log:
--   - waiting for locator(&quot;.placeholder&quot;)
-
-	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
-	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:138)
-	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:131)
-	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:124)
-	at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:241)
-	at com.microsoft.playwright.impl.FrameImpl.click(FrameImpl.java:232)
-	at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:164)
-	at com.microsoft.playwright.Locator.click(Locator.java:2500)
-	at utilze.playwright.click(playwright.java:71)
-	... 3 more
-Caused by: com.microsoft.playwright.TimeoutError: Error {
-  message=&apos;Timeout 30000ms exceeded.
-  name=&apos;TimeoutError
-  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
-    at ProgressController.run (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/progress.js:68:28)
-    at FrameDispatcher._runCommand (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:95:31)
-    at DispatcherConnection.dispatch (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:329:39)
-}
-Call log:
--   - waiting for locator(&quot;.placeholder&quot;)
-
-	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:257)
-	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:214)
-	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:136)
-	... 10 more
-</pre></div></td>
-<td>224</td>
-<td>runner.CucumberRunnerTest@3fe46690</td></tr>
+<td title='runner.CucumberRunnerTest.runScenario()'><b>runScenario</b><br>Test class: runner.CucumberRunnerTest<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User adds a laptop to the cart and removes it successfully", "Smoke Test"</td>
+<td></td>
+<td>13</td>
+<td>runner.CucumberRunnerTest@6c931d35</td></tr>
 </table><p>
 </body>
 </html>

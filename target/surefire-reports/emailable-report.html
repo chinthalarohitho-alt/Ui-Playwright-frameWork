@@ -9,51 +9,10 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Suite1</th></tr>
-<tr><td><a href="#t0">Cucumber Tests</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">225,130</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Cucumber Tests</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">13,538</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite1</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Cucumber Tests &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">runner.CucumberRunnerTest</td><td><a href="#m0">runScenario</a></td><td rowspan="1">1770191227816</td><td rowspan="1">224130</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite1</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Cucumber Tests &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">runner.CucumberRunnerTest</td><td><a href="#m0">runScenario</a></td><td rowspan="1">1770210453896</td><td rowspan="1">13168</td></tr></tbody>
 </table>
-<h2>Cucumber Tests</h2><h3 id="m0">runner.CucumberRunnerTest#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;User adds a laptop to the cart and removes it successfully&quot;</td><td>&quot;Forms Page End-to-End Validation&quot;</td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">java.lang.AssertionError: Element not found or not clickable within timeout: .placeholder
-	at utilze.playwright.click(playwright.java:76)
-	at pages.Ai.Ai.configureChatGpt(Ai.java:25)
-	at steps.Ai.AISteps.iConfiguredTheChatGptForFetchingTheParamsBasedOnTheQuery(AISteps.java:19)
-	at ✽.I configured the chatGpt for Fetching the params: &quot;Accuracy, Hallucination, Relevance, Clarity, Completeness&quot; based on the query(file:///Users/rohithkumar/Desktop/Ui-Playwright-frameWork/src/test/resources/features/Ai/TestingAI.feature:8)
-Caused by: com.microsoft.playwright.TimeoutError: Error {
-  message=&apos;Timeout 30000ms exceeded.
-  name=&apos;TimeoutError
-  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
-    at ProgressController.run (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/progress.js:68:28)
-    at FrameDispatcher._runCommand (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:95:31)
-    at DispatcherConnection.dispatch (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:329:39)
-}
-Call log:
--   - waiting for locator(&quot;.placeholder&quot;)
-
-	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
-	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:138)
-	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:131)
-	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:124)
-	at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:241)
-	at com.microsoft.playwright.impl.FrameImpl.click(FrameImpl.java:232)
-	at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:164)
-	at com.microsoft.playwright.Locator.click(Locator.java:2500)
-	at utilze.playwright.click(playwright.java:71)
-	... 3 more
-Caused by: com.microsoft.playwright.TimeoutError: Error {
-  message=&apos;Timeout 30000ms exceeded.
-  name=&apos;TimeoutError
-  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
-    at ProgressController.run (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/progress.js:68:28)
-    at FrameDispatcher._runCommand (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:95:31)
-    at DispatcherConnection.dispatch (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:329:39)
-}
-Call log:
--   - waiting for locator(&quot;.placeholder&quot;)
-
-	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:257)
-	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:214)
-	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:136)
-	... 10 more
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Cucumber Tests</h2><h3 id="m0">runner.CucumberRunnerTest#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;User adds a laptop to the cart and removes it successfully&quot;</td><td>&quot;Smoke Test&quot;</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

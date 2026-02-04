@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-02-04T13:17:07 IST" name="Suite1" finished-at="2026-02-04T13:20:52 IST" duration-ms="225130">
+  <suite started-at="2026-02-04T18:37:33 IST" name="Suite1" finished-at="2026-02-04T18:37:47 IST" duration-ms="13538">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberRunnerTest@3fe46690]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberRunnerTest@6c931d35]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2026-02-04T13:17:07 IST" name="Cucumber Tests" finished-at="2026-02-04T13:20:52 IST" duration-ms="225130">
+    <test started-at="2026-02-04T18:37:33 IST" name="Cucumber Tests" finished-at="2026-02-04T18:37:47 IST" duration-ms="13538">
       <class name="runner.CucumberRunnerTest">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.CucumberRunnerTest@3fe46690]" started-at="2026-02-04T13:17:07 IST" name="setUpClass" finished-at="2026-02-04T13:17:07 IST" duration-ms="664" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.CucumberRunnerTest@6c931d35]" started-at="2026-02-04T18:37:33 IST" name="setUpClass" finished-at="2026-02-04T18:37:33 IST" duration-ms="304" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@2e66f1bd]]>
+                <![CDATA[org.testng.TestRunner@219edc05]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberRunnerTest@3fe46690]" started-at="2026-02-04T13:17:07 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-04T13:20:51 IST" duration-ms="224130" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberRunnerTest@6c931d35]" started-at="2026-02-04T18:37:33 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-04T18:37:47 IST" duration-ms="13168" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -30,63 +30,14 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA["Forms Page End-to-End Validation"]]>
+                <![CDATA["Smoke Test"]]>
               </value>
             </param>
           </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[Element not found or not clickable within timeout: .placeholder]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Element not found or not clickable within timeout: .placeholder
-at utilze.playwright.click(playwright.java:76)
-at pages.Ai.Ai.configureChatGpt(Ai.java:25)
-at steps.Ai.AISteps.iConfiguredTheChatGptForFetchingTheParamsBasedOnTheQuery(AISteps.java:19)
-at ✽.I configured the chatGpt for Fetching the params: "Accuracy, Hallucination, Relevance, Clarity, Completeness" based on the query(file:///Users/rohithkumar/Desktop/Ui-Playwright-frameWork/src/test/resources/features/Ai/TestingAI.feature:8)
-Caused by: com.microsoft.playwright.TimeoutError: Error {
-  message='Timeout 30000ms exceeded.
-  name='TimeoutError
-  stack='TimeoutError: Timeout 30000ms exceeded.
-    at ProgressController.run (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/progress.js:68:28)
-    at FrameDispatcher._runCommand (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:95:31)
-    at DispatcherConnection.dispatch (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:329:39)
-}
-Call log:
--   - waiting for locator(".placeholder")
-
-at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
-at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:138)
-at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:131)
-at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:124)
-at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:241)
-at com.microsoft.playwright.impl.FrameImpl.click(FrameImpl.java:232)
-at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:164)
-at com.microsoft.playwright.Locator.click(Locator.java:2500)
-at utilze.playwright.click(playwright.java:71)
-... 3 more
-Caused by: com.microsoft.playwright.TimeoutError: Error {
-  message='Timeout 30000ms exceeded.
-  name='TimeoutError
-  stack='TimeoutError: Timeout 30000ms exceeded.
-    at ProgressController.run (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/progress.js:68:28)
-    at FrameDispatcher._runCommand (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:95:31)
-    at DispatcherConnection.dispatch (/private/var/folders/bk/s5n885l547g92h3k79r1qxdh0000gn/T/playwright-java-18110176634747584411/package/lib/server/dispatchers/dispatcher.js:329:39)
-}
-Call log:
--   - waiting for locator(".placeholder")
-
-at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:257)
-at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:214)
-at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:136)
-... 10 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.CucumberRunnerTest@3fe46690]" started-at="2026-02-04T13:20:51 IST" name="tearDownClass" finished-at="2026-02-04T13:20:52 IST" duration-ms="269" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.CucumberRunnerTest@6c931d35]" started-at="2026-02-04T18:37:47 IST" name="tearDownClass" finished-at="2026-02-04T18:37:47 IST" duration-ms="49" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
