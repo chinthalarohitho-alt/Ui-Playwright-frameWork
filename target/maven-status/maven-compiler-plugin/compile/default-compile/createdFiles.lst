@@ -1,5 +1,7 @@
 pages/common/GlobalPaths.class
+pages/Conduit/ConduitPaths.class
 config/Settings.class
+pages/Ai/GeminiChatPaths.class
 pages/HomePage/Login.class
 pages/Ai/AiPAths.class
 pages/DemoBlaze_cart/cartpagePaths.class
@@ -7,9 +9,11 @@ Initialization/FrameWorkInitialization.class
 utilze/playwright.class
 pages/FormPage/FormPagePaths.class
 config/frameWorkConfig.class
+pages/Conduit/ConduitPage.class
 pages/FormPage/Form.class
 pages/Ai/Ai.class
 pages/DemoBlaze_cart/cart.class
 config/ConfigReader.class
+pages/Ai/GeminiChat.class
 config/EnvironmentConfig.class
 pages/HomePage/LoginPath.class

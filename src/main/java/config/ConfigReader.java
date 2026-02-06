@@ -38,6 +38,7 @@ public class ConfigReader {
             Settings.Username = envConfig.username();
             Settings.Password = envConfig.password();
             Settings.chatGptUrl = envConfig.chatGptUrl();
+            Settings.geminiAppUrl = envConfig.geminiAppUrl();
 
             logger.info("✅ Configuration loaded successfully");
             logger.info("Environment: {}, URL: {}", Settings.EnvName, Settings.Url);

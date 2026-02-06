@@ -6,4 +6,5 @@ public class Settings {
     public static String Password;
     public static String EnvName;
     public static String chatGptUrl;
+    public static String geminiAppUrl;
 }

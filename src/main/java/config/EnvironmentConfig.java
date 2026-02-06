@@ -27,4 +27,7 @@ public interface EnvironmentConfig extends Config {
     @Key("${env}.chatGptUrl")
     String chatGptUrl();
 
+    @Key("${env}.geminiAppUrl")
+    String geminiAppUrl();
+
 }

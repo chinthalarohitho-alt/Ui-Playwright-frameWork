@@ -2,6 +2,7 @@ package utilze;
 
 import Initialization.FrameWorkInitialization;
 import com.microsoft.playwright.*;
+import com.microsoft.playwright.assertions.LocatorAssertions;
 import com.microsoft.playwright.options.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -155,6 +156,13 @@ public class playwright extends FrameWorkInitialization {
     }
 
     /**
+     * Clicks on an element by its text content.
+     */
+    public void clickByText(String text) {
+        internalClick(getPage().getByText(text), "Text: " + text);
+    }
+
+    /**
      * Clicks element multiple times with delay between clicks.
      * Use for double-click (clickCount=2) or triple-click (clickCount=3).
      */
@@ -300,6 +308,11 @@ public class playwright extends FrameWorkInitialization {
         try {
             logger.debug("Asserting for not visibility of: {}", locator);
             assertThat(getPage().locator(locator)).not().isVisible();
+
+            // Locator button = getPage().locator("#submitBtn");
+            // LocatorAssertions.assertThat(button).isVisible();
+            
+            
             logger.debug("Element is not visible: {}", locator);
         } catch (AssertionError e) {
             String error = String.format("Element is visible: %s", locator);
@@ -395,6 +408,19 @@ public class playwright extends FrameWorkInitialization {
     }
 
     /**
+     * Counts the number of elements matching the locator.
+     * Returns 0 if no elements found.
+     */
+    public int count(String locator) {
+        try {
+            return getPage().locator(locator).count();
+        } catch (Exception e) {
+            logger.warn("Error counting elements for {}: {}", locator, e.getMessage());
+            return 0;
+        }
+    }
+
+    /**
      * Gets attribute value. Returns null if fails.
      * Use for optional attributes that may not exist.
      */
@@ -464,6 +490,15 @@ public class playwright extends FrameWorkInitialization {
      */
     public void waitForElementInvisibility(String locator) {
         waitForElementInvisibility(locator, 30000);
+    }
+
+    /**
+     * Waits for DOM content to be loaded (faster than full page load).
+     * Use after navigation when you need to interact with DOM elements.
+     */
+    public void waitForDOMContentLoaded() {
+        logger.debug("Waiting for DOM content loaded");
+        getPage().waitForLoadState(LoadState.DOMCONTENTLOADED);
     }
 
     /**

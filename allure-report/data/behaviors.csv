@@ -1,5 +1,2 @@
-"BROKEN","EPIC","FAILED","FEATURE","PASSED","SKIPPED","STORY","UNKNOWN"
-"5","","3","From Page - To Test Login","2","0","To Test Login with valid cred's","0"
-"1","","1","Elements Page - Buttons and Alerts","0","0","Verify Buttons functionality","0"
-"1","","0","","2","0","","0"
-"1","","1","Elements Page - Buttons and Alerts","0","0","Verify Alerts functionality","0"
+"Epic","Feature","Story","FAILED","BROKEN","PASSED","SKIPPED","UNKNOWN"
+"","Create and Validate Article","Create, Verify, and Delete a New Article","0","0","1","0","0"

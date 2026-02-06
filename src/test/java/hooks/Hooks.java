@@ -7,8 +7,8 @@ import io.cucumber.java.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -24,13 +24,9 @@ public class Hooks {
 
     private static final Logger logger = LoggerFactory.getLogger(Hooks.class);
     private FrameWorkInitialization FM;
+    private long scenarioStartTime;
 
     // Tracking
-    private static long suiteStartTime;
-    private long scenarioStartTime;
-    private static int totalTests = 0;
-    private static int passedTests = 0;
-    private static int failedTests = 0;
 
     // Separator configuration
     private static final int SEPARATOR_LENGTH = 120;
@@ -46,7 +42,6 @@ public class Hooks {
 
     @BeforeAll
     public static void beforeAll() throws IOException {
-        suiteStartTime = System.currentTimeMillis();
         Properties props = new Properties();
         System.out.println("\n" + SEPARATOR);
         System.out.println("TEST SUITE STARTED");
@@ -56,11 +51,16 @@ public class Hooks {
         try {
             props.load(new FileInputStream("src/main/java/config/BrowserConfig.properties"));
             ConfigReader.PopulateSettings();
-            System.out.println("Environment: " + System.getProperty("env") + " | Browser: " + props.getProperty("BrowserName") + " | Headless: " + props.getProperty("Headless_status") + " | BaseUrl: " + Settings.Url);
+            System.out.println(
+                    "Environment: " + System.getProperty("env") + " | Browser: " + props.getProperty("BrowserName")
+                            + " | Headless: " + props.getProperty("Headless_status") + " | BaseUrl: " + Settings.Url);
         } catch (Exception e) {
             logger.error("Configuration loading failed: {}", e.getMessage());
             throw new RuntimeException("Setup failed", e);
         }
+
+        // Clean old reports
+        cleanReports();
 
         // Create directories
         createDirectories();
@@ -72,7 +72,6 @@ public class Hooks {
     @Before
     public void setup(Scenario scenario) throws IOException {
         scenarioStartTime = System.currentTimeMillis();
-        totalTests++;
 
         System.out.println("\n▶ Starting: " + scenario.getName());
 
@@ -100,23 +99,32 @@ public class Hooks {
 
         try {
             // Handle result
+            // Handle result
             if (scenario.isFailed()) {
-                failedTests++;
                 System.out.println("✗ FAILED: " + scenario.getName() + " (" + formatTime(duration) + ")");
                 captureFailureArtifacts(scenario);
             } else {
-                passedTests++;
                 System.out.println("✓ PASSED: " + scenario.getName() + " (" + formatTime(duration) + ")");
             }
 
             // Save trace on failure
-            if (scenario.isFailed() && FM != null && FM.getContext() != null) {
+            if (FM != null && FM.getContext() != null) {
                 String enableTracing = FM.getProperties().getProperty("enable_tracing", "false");
                 if ("true".equalsIgnoreCase(enableTracing)) {
-                    String tracePath = "target/traces/" + sanitize(scenario.getName()) + ".zip";
+                    String traceFileName = sanitize(scenario.getName()) + "_" + timestamp() + ".zip";
+                    Path tracePath = Paths.get("target/traces/", traceFileName).toAbsolutePath();
+
+                    // Capture trace to file briefly
                     FM.getContext().tracing().stop(new com.microsoft.playwright.Tracing.StopOptions()
-                            .setPath(java.nio.file.Paths.get(tracePath)));
-                    System.out.println("  Trace saved: " + tracePath);
+                            .setPath(tracePath));
+
+                    // Read content and attach to Allure report
+                    byte[] traceContent = Files.readAllBytes(tracePath);
+                    io.qameta.allure.Allure.addAttachment("Playwright Trace", "application/zip",
+                            new java.io.ByteArrayInputStream(traceContent), ".zip");
+
+                    // Delete local file immediately so it's not stored
+                    Files.deleteIfExists(tracePath);
                 }
             }
         } catch (Exception e) {
@@ -130,16 +138,6 @@ public class Hooks {
 
     @AfterAll
     public static void afterAll() {
-        long totalTime = System.currentTimeMillis() - suiteStartTime;
-
-        System.out.println("\n" + SEPARATOR);
-        System.out.println("TEST SUITE COMPLETED");
-        System.out.println(SEPARATOR);
-        System.out.println("Total: " + totalTests + " | Passed: " + passedTests + " | Failed: " + failedTests);
-        System.out.println("Duration: " + formatTime(totalTime));
-        System.out.println("Pass Rate: " + (totalTests > 0 ? (passedTests * 100 / totalTests) : 0) + "%");
-        System.out.println(SEPARATOR + "\n");
-
         // Final cleanup
         try {
             new FrameWorkInitialization().shutdownAll();
@@ -350,23 +348,48 @@ public class Hooks {
     private static void generateReports() {
         // Cucumber HTML
         Path cucumberReport = Paths.get("target/cucumber-reports.html").toAbsolutePath();
+
+        // Wait briefly for Cucumber to finish writing the file
+        for (int i = 0; i < 15; i++) {
+            if (Files.exists(cucumberReport))
+                break;
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException ignored) {
+            }
+        }
+
         if (Files.exists(cucumberReport)) {
-            System.out.println("📊 Cucumber Report: file://" + cucumberReport);
+            System.out.println("\n\n=================================================================================");
+            System.out.println("\n📊 Cucumber Report: file://" + cucumberReport + "\n");
+
         }
 
         // Allure
         try {
-            Process process = Runtime.getRuntime().exec(new String[]{
-                    "allure", "generate", "allure-results", "-o", "allure-report", "--clean"
+            // Try running via Maven as it's more reliable than the global 'allure' command
+            String mvnCommand = "mvn";
+            // Check common paths if "mvn" is not in PATH
+            if (new File("/opt/homebrew/bin/mvn").exists())
+                mvnCommand = "/opt/homebrew/bin/mvn";
+            else if (new File("/usr/local/bin/mvn").exists())
+                mvnCommand = "/usr/local/bin/mvn";
+
+            Process process = Runtime.getRuntime().exec(new String[] {
+                    mvnCommand, "allure:report"
             });
 
             if (process.waitFor() == 0) {
                 Path allureReport = Paths.get("allure-report/index.html").toAbsolutePath();
-                System.out.println("📊 Allure Report: file://" + allureReport);
-                System.out.println("💡 Or run: allure serve allure-results\n");
+                if (Files.exists(allureReport)) {
+                    System.out.println("📊 To view Allure with a server, run: mvn allure:serve" + "\n");
+                    System.out.println(
+                            "=================================================================================\n\n");
+
+                }
             }
         } catch (Exception e) {
-            // Silently ignore if Allure not installed
+            // Silently ignore if Maven fails or property not set
         }
     }
 
@@ -382,6 +405,37 @@ public class Hooks {
 
     private static String sanitize(String name) {
         return name.replaceAll("[^a-zA-Z0-9-_]", "_");
+    }
+
+    /**
+     * Cleans Allure results and target artifacts (reports, traces, screenshots).
+     */
+    private static void cleanReports() {
+        String[] reportPaths = {
+                "allure-results",
+                "allure-report",
+                "target/screenshots",
+                "target/traces",
+                "target/surefire-reports"
+        };
+
+        for (String dir : reportPaths) {
+            Path path = Paths.get(dir);
+            if (Files.exists(path)) {
+                try {
+                    if (Files.isDirectory(path)) {
+                        Files.walk(path)
+                                .sorted(Comparator.reverseOrder())
+                                .map(Path::toFile)
+                                .forEach(File::delete);
+                    } else {
+                        Files.delete(path);
+                    }
+                } catch (IOException e) {
+                    logger.warn("Cleanup failed for {}: {}", dir, e.getMessage());
+                }
+            }
+        }
     }
 
     private static String timestamp() {
