@@ -50,10 +50,19 @@ public class Hooks {
         // Load configuration
         try {
             props.load(new FileInputStream("src/main/java/config/BrowserConfig.properties"));
+
+            // Allow System property overrides for Docker/CI
+            String browserName = System.getProperty("browser", props.getProperty("BrowserName"));
+            String headlessStatus = System.getProperty("headless", props.getProperty("Headless_status"));
+
+            // Update properties with overrides
+            props.setProperty("BrowserName", browserName);
+            props.setProperty("Headless_status", headlessStatus);
+
             ConfigReader.PopulateSettings();
             System.out.println(
-                    "Environment: " + System.getProperty("env") + " | Browser: " + props.getProperty("BrowserName")
-                            + " | Headless: " + props.getProperty("Headless_status") + " | BaseUrl: " + Settings.Url);
+                    "Environment: " + System.getProperty("env") + " | Browser: " + browserName
+                            + " | Headless: " + headlessStatus + " | BaseUrl: " + Settings.Url);
         } catch (Exception e) {
             logger.error("Configuration loading failed: {}", e.getMessage());
             throw new RuntimeException("Setup failed", e);
@@ -145,8 +154,16 @@ public class Hooks {
             logger.warn("Cleanup warning: {}", e.getMessage());
         }
 
-        // Generate reports
-        generateReports();
+        // Print Summary
+        System.out.println("\n" + SEPARATOR);
+        System.out.println("EXECUTION SUMMARY");
+        System.out.println(SEPARATOR);
+        String reportPath = Paths
+                .get(System.getProperty("user.dir"), "target/cucumber-html-reports/overview-features.html").toUri()
+                .toString();
+        System.out.println("Cucumber Report : " + reportPath);
+        System.out.println("Allure Command  : mvn allure:serve");
+        System.out.println(SEPARATOR + "\n");
     }
 
     // ==================== DYNAMIC TAG FILTERING ====================
@@ -339,57 +356,6 @@ public class Hooks {
             Files.createDirectories(Paths.get("target/traces"));
         } catch (IOException e) {
             logger.warn("Directory creation failed: {}", e.getMessage());
-        }
-    }
-
-    /**
-     * Generates test reports.
-     */
-    private static void generateReports() {
-        // Cucumber HTML
-        Path cucumberReport = Paths.get("target/cucumber-reports.html").toAbsolutePath();
-
-        // Wait briefly for Cucumber to finish writing the file
-        for (int i = 0; i < 15; i++) {
-            if (Files.exists(cucumberReport))
-                break;
-            try {
-                Thread.sleep(200);
-            } catch (InterruptedException ignored) {
-            }
-        }
-
-        if (Files.exists(cucumberReport)) {
-            System.out.println("\n\n=================================================================================");
-            System.out.println("\n📊 Cucumber Report: file://" + cucumberReport + "\n");
-
-        }
-
-        // Allure
-        try {
-            // Try running via Maven as it's more reliable than the global 'allure' command
-            String mvnCommand = "mvn";
-            // Check common paths if "mvn" is not in PATH
-            if (new File("/opt/homebrew/bin/mvn").exists())
-                mvnCommand = "/opt/homebrew/bin/mvn";
-            else if (new File("/usr/local/bin/mvn").exists())
-                mvnCommand = "/usr/local/bin/mvn";
-
-            Process process = Runtime.getRuntime().exec(new String[] {
-                    mvnCommand, "allure:report"
-            });
-
-            if (process.waitFor() == 0) {
-                Path allureReport = Paths.get("allure-report/index.html").toAbsolutePath();
-                if (Files.exists(allureReport)) {
-                    System.out.println("📊 To view Allure with a server, run: mvn allure:serve" + "\n");
-                    System.out.println(
-                            "=================================================================================\n\n");
-
-                }
-            }
-        } catch (Exception e) {
-            // Silently ignore if Maven fails or property not set
         }
     }
 

@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  playwright-tests:
+    build: .
+    volumes:
+      - ./allure-results:/app/allure-results
+      - ./target:/app/target
+    environment:
+      - env=google
+      - headless=true
+    command: mvn test -Dcucumber.filter.tags="@smoke" -Denv=google -Dheadless=true

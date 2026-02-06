@@ -1,0 +1,11 @@
+target/
+allure-results/
+allure-report/
+.idea/
+.vscode/
+.git/
+*.iml
+.DS_Store
+docker-compose.yml
+Dockerfile
+.dockerignore
