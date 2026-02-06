@@ -68,18 +68,23 @@ public class FrameWorkInitialization {
     public void initializeBrowser() {
         try {
             // Read browser configuration
-            String browserName = prop.getProperty("BrowserName", DEFAULT_BROWSER);
-            
+            // Priority: Command line (-Dbrowser=chromium) > BrowserConfig.properties >
+            // Default
+            String browserOverride = System.getProperty("browser");
+            String browserName = (browserOverride != null) ? browserOverride
+                    : prop.getProperty("BrowserName", DEFAULT_BROWSER);
+
             // Priority: Command line (-Dheadless=true) > BrowserConfig.properties > Default
             String headlessOverride = System.getProperty("headless");
-            boolean isHeadless = (headlessOverride != null) ? Boolean.parseBoolean(headlessOverride) :
-                    Boolean.parseBoolean(prop.getProperty("Headless_status", String.valueOf(DEFAULT_HEADLESS)));
+            boolean isHeadless = (headlessOverride != null) ? Boolean.parseBoolean(headlessOverride)
+                    : Boolean.parseBoolean(prop.getProperty("Headless_status", String.valueOf(DEFAULT_HEADLESS)));
             String locale = prop.getProperty("Locale", DEFAULT_LOCALE);
             String windowSize = prop.getProperty("window_size", DEFAULT_WINDOW_SIZE);
 
             // Read timeout configurations
             int defaultTimeout = Integer.parseInt(prop.getProperty("default_timeout", String.valueOf(DEFAULT_TIMEOUT)));
-            int navigationTimeout = Integer.parseInt(prop.getProperty("navigation_timeout", String.valueOf(DEFAULT_NAVIGATION_TIMEOUT)));
+            int navigationTimeout = Integer
+                    .parseInt(prop.getProperty("navigation_timeout", String.valueOf(DEFAULT_NAVIGATION_TIMEOUT)));
 
             logger.info("Initializing browser - Name: {}, Headless: {}, Locale: {}, Window: {}",
                     browserName, isHeadless, locale, windowSize);

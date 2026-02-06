@@ -9,4 +9,5 @@ services:
     environment:
       - env=google
       - headless=true
-    command: mvn test -Dcucumber.filter.tags="@smoke" -Denv=google -Dheadless=true
+      - browser=chromium
+    command: mvn test -Dcucumber.filter.tags="@smoke" -Denv=google -Dheadless=true -Dbrowser=chromium

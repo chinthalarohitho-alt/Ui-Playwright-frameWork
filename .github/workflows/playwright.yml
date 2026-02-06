@@ -17,6 +17,7 @@ jobs:
     env:
       TestingEnv: demoblaze
       HEADLESS: true
+      BROWSER: chromium
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -28,8 +29,9 @@ jobs:
             -w /app \
             -e TestingEnv=${{ env.TestingEnv }} \
             -e HEADLESS=${{ env.HEADLESS }} \
+            -e browser=${{ env.BROWSER }} \
             mcr.microsoft.com/playwright/java:v1.56.0-noble \
-            mvn test -Dcucumber.filter.tags="@smoke" -Denv=${{ env.TestingEnv }} -Dheadless=${{ env.HEADLESS }}
+            mvn test -Dcucumber.filter.tags="@smoke" -Denv=${{ env.TestingEnv }} -Dheadless=${{ env.HEADLESS }} -Dbrowser=${{ env.BROWSER }}
 
       - name: GitHub Job Summary
         if: always()
